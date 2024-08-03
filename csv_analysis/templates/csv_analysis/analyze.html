@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Analysis</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Data Analysis</h1>
+    <h2>First Few Rows</h2>
+    {{ head|safe }}
+
+    <h2>Summary Statistics</h2>
+    {{ description|safe }}
+
+    <h2>Missing Values</h2>
+    {{ missing_values|safe }}
+
+    <h2>Handle Missing Values</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="handle_missing">Choose a method to handle missing values:</label>
+        <select name="handle_missing" id="handle_missing">
+            <option value="drop">Drop rows with missing values</option>
+            <option value="fill_mean">Fill missing values with mean</option>
+            <option value="fill_median">Fill missing values with median</option>
+            <option value="ffill">Forward fill</option>
+            <option value="bfill">Backward fill</option>
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+
+    <h2>Histograms</h2>
+    {% for histogram in histograms %}
+        <img src="{% static histogram %}" alt="Histogram">
+    {% endfor %}
+</body>
+</html>
