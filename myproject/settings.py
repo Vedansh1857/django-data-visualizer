@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z)j^ed*ue&6x%vcebu9+!vxtvy+#&=1i0*a=x(!3gmhk0)ksd^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-data-visualizer.onrender.com']
 
 
 # Application definition
