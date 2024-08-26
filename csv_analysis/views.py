@@ -60,7 +60,7 @@ def analyze_file(request, file_id):
         plt.figure()
         sns.histplot(df[column].dropna(), kde=False)
         sanitized_column = sanitize_filename(column)
-        plot_dir = os.path.join(settings.STATICFILES_DIRS[0], 'histograms')
+        plot_dir = os.path.join(settings.STATIC_ROOT, 'histograms')
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
         plot_path = os.path.join(plot_dir, f'hist_{sanitized_column}.png')
